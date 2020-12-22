@@ -10,7 +10,7 @@ using namespace::std;
 
 int main(){
     
-    ifstream myfile("largeUF.txt");
+    ifstream myfile("./testfile/largeUF.txt");
     /*largeUF costs a quarter of an hour! And it involves 6 components.
     You can switch it to "tinyUF.txt" or "mediumUF.txt" manually.*/
     int N;

@@ -32,7 +32,11 @@ Average:    ~N^2/4 compares and ~N^2/4 exchanges
 worst case: ~N^2/4 compares and ~N^2/2 exchanges  
 best case:   N-1   compares and 0      exchanges  
 
-Owing to the times of its compare and exchange as O(n^2/4), InsertionSort is the best choice for small file.  
+Owing to the times of its compare and exchange as O(n^2/4), InsertionSort is the best choice for small file. 
+
+> Insertion Sort for 1K int: 7e-06s.  457 times faster than selection sort.  
+> Insertion Sort for 8K int: 0.25124s.  0.790427 times faster than selection sort.  
+> InsertionSort:  4.05283s  0.807027 times faster than SelectionSort.  
 
 ### ShellSort
 

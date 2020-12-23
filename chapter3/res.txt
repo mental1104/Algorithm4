@@ -1,0 +1,18 @@
+Construction:  
+
+Linked-list construction time: 7.94385s. 
+BinarySearch construction time: 0.714529s. 
+BST construction time: 0.070996s.
+
+
+Traverse:  
+
+Linked-list traverse time: 0.022762s. 
+BinarySearch traverse time: 0.019686s. 
+BST traverse time: 0.020893s. 
+
+
+                  Dynamic     Static (ms): 
+linked-list         0.154ms     0.079ms 
+BinarySearch        0.264ms     0.001ms 
+BST                 0.264ms     0.001ms 

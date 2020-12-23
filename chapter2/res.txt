@@ -1,37 +1,37 @@
 For 32K random int: 
-SelectionSort:  3.27074s
+SelectionSort:  3.59749s
 
-InsertionSort:  4.05283s  0.807027 times faster than SelectionSort.
-ShellSort:  0.019518s  167.576 times faster than SelectionSort.
-MergeSort(BottomUp):  0.012317s  265.547 times faster than SelectionSort.
-MergeSort(TopDown):  0.012316s  265.569 times faster than SelectionSort.
-Quicksort:  0.009029s  362.249 times faster than SelectionSort.
-Quicksort(3way):  0.015976s  204.728 times faster than SelectionSort.
-heapsort:  0.014182s  230.626 times faster than SelectionSort.
+InsertionSort:  4.07855s  0.882052 times faster than SelectionSort.
+ShellSort:  0.01773s  202.904 times faster than SelectionSort.
+MergeSort(BottomUp):  0.012357s  291.13 times faster than SelectionSort.
+MergeSort(TopDown):  0.012526s  287.202 times faster than SelectionSort.
+Quicksort:  0.008775s  409.97 times faster than SelectionSort.
+Quicksort(3way):  0.016091s  223.572 times faster than SelectionSort.
+heapsort:  0.01402s  256.597 times faster than SelectionSort.
 
 
 
 For 8Kint:
-Selection Sort for 8K int: 0.198587s
-Insertion Sort for 8K int: 0.25124s.  0.790427 times faster than selection sort.
-Shell Sort for 8K int: 0.003184s.  62.3703 times faster than selection sort.
-Merge Sort Bottom-Up for 8K int: 0.002632s.  75.451 times faster than selection sort.
-Merge Sort Top-Down for 8K int: 0.002606s.  76.2038 times faster than selection sort.
-Quick Sort for 8K int: 0.001979s.  100.347 times faster than selection sort.
-Quick 3way for 8K int: 0.003481s.  57.0488 times faster than selection sort.
-Heap Sort for 8K int: 0.002984s.  66.5506 times faster than selection sort.
+Selection Sort for 8K int: 0.194018s
+Insertion Sort for 8K int: 0.250744s.  0.773769 times faster than selection sort.
+Shell Sort for 8K int: 0.0032s.  60.6306 times faster than selection sort.
+Merge Sort Bottom-Up for 8K int: 0.002653s.  73.1315 times faster than selection sort.
+Merge Sort Top-Down for 8K int: 0.002637s.  73.5753 times faster than selection sort.
+Quick Sort for 8K int: 0.001971s.  98.4363 times faster than selection sort.
+Quick 3way for 8K int: 0.003433s.  56.5156 times faster than selection sort.
+Heap Sort for 8K int: 0.002983s.  65.0412 times faster than selection sort.
 
 
 
 For small files(1Kint):
-Selection Sort for 1K int: 0.003199s
-Insertion Sort for 1K int: 7e-06s.  457 times faster than selection sort.
-Shell Sort for 1K int: 0.000254s.  12.5945 times faster than selection sort.
-Merge Sort Bottom-Up for 1K int: 0.000255s.  12.5451 times faster than selection sort.
-Merge Sort Top-Down for 1K int: 0.000262s.  12.2099 times faster than selection sort.
-Quick Sort for 1K int: 0.000217s.  14.7419 times faster than selection sort.
-Quick 3way for 1K int: 0.000365s.  8.76438 times faster than selection sort.
-Heap Sort for 1K int: 0.000287s.  11.1463 times faster than selection sort.
+Selection Sort for 1K int: 0.003148s
+Insertion Sort for 1K int: 8e-06s.  393.5 times faster than selection sort.
+Shell Sort for 1K int: 0.000278s.  11.3237 times faster than selection sort.
+Merge Sort Bottom-Up for 1K int: 0.000251s.  12.5418 times faster than selection sort.
+Merge Sort Top-Down for 1K int: 0.000255s.  12.3451 times faster than selection sort.
+Quick Sort for 1K int: 0.000226s.  13.9292 times faster than selection sort.
+Quick 3way for 1K int: 0.000341s.  9.23167 times faster than selection sort.
+Heap Sort for 1K int: 0.000281s.  11.2028 times faster than selection sort.
 
 
 

@@ -13,11 +13,13 @@ public:
     int val;
     Node* left = nullptr, *right = nullptr;
     int N;
+    bool color;
     Node(string k, int v, int n):key(k),val(v),N(n){}
+    Node(string k, int v, int n, bool c):key(k),val(v),N(n),color(c){}
 };
 
 class BST{
-private:
+protected:
 
     Node* root;
 
@@ -25,7 +27,7 @@ private:
 
     int get(Node* x, string key);
 
-    Node* put(Node* x, string key);
+    virtual Node* put(Node* x, string key);
 
     Node* min(Node* x);
 
@@ -60,7 +62,7 @@ public:
 
     int get(string key){ return get(root,key); }
 
-    void put(string key){ root = put(root, key); }
+    virtual void put(string key){ root = put(root, key); }
 
     string min(){ return min(root)->key; }
 
@@ -127,7 +129,7 @@ BST::get(Node* x, string key){
 }
 
 Node*
-BST::put(Node* x, string key){
+BST:: put(Node* x, string key){
     if(x == nullptr) return new Node(key, 1, 1);
     int cmp = key.compare(x->key);
     if      (cmp < 0) x->left  = put(x->left, key);

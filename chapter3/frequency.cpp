@@ -6,16 +6,20 @@
 #include "linked_list.h"
 #include "binarysearch.h"
 #include "BST.h"
+#include "RB_tree.h"
+
+
 
 using namespace::std;
 
 int main(){
     ifstream rd("./tale.txt");
 
-    ofstream ll_o, bs_o, bst_o;
+    ofstream ll_o, bs_o, bst_o, rbt_o;
     ll_o.open("linked_list.txt");
     bs_o.open("binarysearch.txt");
     bst_o.open("BST.txt");
+    rbt_o.open("RB_tree.txt");
 
     ofstream res;
     res.open("res.txt");
@@ -59,7 +63,19 @@ int main(){
     end = clock();
     double bst_c = double(end-start)/CLOCKS_PER_SEC;
 
-    res << "BST construction time: " << bst_c << "s.\n\n" << endl;
+    res << "BST construction time: " << bst_c << "s." << endl;
+
+    //RB_tree construction
+    rd.close();
+    rd.open("./tale.txt");
+    start = clock();
+    shared_ptr<RB_tree> rbt = make_shared<RB_tree>();
+    while(rd >> temp)
+        rbt->put(temp);
+    end = clock();
+    double rbt_c = double(end-start)/CLOCKS_PER_SEC;
+
+    res << "RB_tree construction time: " << rbt_c << "s.\n\n" << endl;
 
     rd.close();
 
@@ -85,7 +101,14 @@ int main(){
     end = clock();
 
     double bst_t = double(end-start)/CLOCKS_PER_SEC;
-    res << "BST traverse time: " << bst_t << "s. \n\n" << endl; 
+    res << "BST traverse time: " << bst_t << "s. " << endl; 
+
+    start = clock();
+    rbt->traverse(rbt_o);
+    end = clock();
+
+    double rbt_t = double(end-start)/CLOCKS_PER_SEC;
+    res << "RB_tree traverse time(should be the same as BST): " << rbt_t << "s. \n\n" << endl; 
 
     //Operation
     res << "                  Dynamic     Static (ms): " << endl;
@@ -130,7 +153,23 @@ int main(){
 
     double bst_s = double(end-start)/CLOCKS_PER_SEC;
 
-    res << "BST                 " << 1000*bs_d << "ms     " << 1000*bs_s << "ms " << endl;
+    res << "BST                 " << 1000*bst_d << "ms     " << 1000*bst_s << "ms " << endl;
+
+    
+    start = clock();
+    rbt->put("BLUE_ESPEON");
+    end = clock();
+
+    double rbt_d = double(end-start)/CLOCKS_PER_SEC;
+
+    start = clock();
+    rbt->get("BLUE_ESPEON");
+    end = clock();
+
+    double rbt_s = double(end-start)/CLOCKS_PER_SEC;
+
+    res << "RB_tree             " << 1000*rbt_d << "ms     " << 1000*rbt_s << "ms " << endl;
+
 
     ll_o.close();
     bs_o.close();

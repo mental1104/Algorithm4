@@ -1,21 +1,24 @@
 Construction:  
 
-Linked-list construction time: 8.634s. 
-BinarySearch construction time: 0.831515s. 
-BST construction time: 0.080732s.
-RB_tree construction time: 0.098927s.
+Linked-list construction time: 8.60235s. 
+BinarySearch construction time: 0.775482s. 
+BST construction time: 0.074589s.
+RB_tree construction time: 0.099577s.
+HashTable(SeparateChain) construction time: 0.059532s.
 
 
 Traverse:  
 
-Linked-list traverse time: 0.022614s. 
-BinarySearch traverse time: 0.021199s. 
-BST traverse time: 0.023433s. 
-RB_tree traverse time(should be the same as BST): 0.023262s. 
+Linked-list traverse time: 0.02318s. 
+BinarySearch traverse time: 0.022305s. 
+BST traverse time: 0.020817s. 
+RB_tree traverse time(should be the same as BST): 0.021011s. 
+HashTable(SeparateChain) traverse time(should be the same as BST): 0.021839s. 
 
 
                   Dynamic     Static (ms): 
-linked-list         0.182ms     0.109ms 
-BinarySearch        0.267ms     0.002ms 
-BST                 0.002ms     0.001ms 
-RB_tree             0.005ms     0.001ms 
+linked-list         0.15ms     0.09ms 
+BinarySearch        0.354ms     0.003ms 
+BST                 0.004ms     0.002ms 
+RB_tree             0.008ms     0.002ms 
+HashTable(SC)      0.006ms     0.002ms 

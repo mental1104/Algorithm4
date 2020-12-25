@@ -8,7 +8,7 @@
 #include "BST.h"
 #include "RB_tree.h"
 #include "SeparateChain.h"
-
+#include "LinearProbing.h"
 
 
 using namespace::std;
@@ -16,12 +16,13 @@ using namespace::std;
 int main(){
     ifstream rd("./tale.txt");
 
-    ofstream ll_o, bs_o, bst_o, rbt_o, hts_o;
+    ofstream ll_o, bs_o, bst_o, rbt_o, hts_o, htl_o;
     ll_o.open("linked_list.txt");
     bs_o.open("binarysearch.txt");
     bst_o.open("BST.txt");
     rbt_o.open("RB_tree.txt");
     hts_o.open("SeparateChain.txt");
+    htl_o.open("LinearProbing.txt");
 
     ofstream res;
     res.open("res.txt");
@@ -88,9 +89,18 @@ int main(){
     end = clock();
     double hts_c = double(end-start)/CLOCKS_PER_SEC;
 
-    res << "HashTable(SeparateChain) construction time: " << hts_c << "s.\n\n" << endl;
+    res << "HashTable(SeparateChain) construction time: " << hts_c << "s." << endl;
 
     rd.close();
+    rd.open("./tale.txt");
+    start = clock();
+    shared_ptr<LinearProbing> htl = make_shared<LinearProbing>();
+    while(rd >> temp)
+        htl->put(temp);
+    end = clock();
+
+    double htl_c = double(end-start)/CLOCKS_PER_SEC;
+    res << "HashTable(LinearProbing) construction time: " << htl_c << "s.\n\n" << endl;
 
 
     //traverse;
@@ -128,7 +138,14 @@ int main(){
     end = clock();
 
     double hts_t = double(end-start)/CLOCKS_PER_SEC;
-    res << "HashTable(SeparateChain) traverse time(should be the same as BST): " << hts_t << "s. \n\n" << endl; 
+    res << "HashTable(SeparateChain) traverse time: " << hts_t << "s. " << endl; 
+
+    start = clock();
+    htl->traverse(htl_o);
+    end = clock();
+
+    double htl_t = double(end-start)/CLOCKS_PER_SEC;
+    res << "HashTable(LinearProbing) traverse time: " << htl_t << "s. \n\n" << endl; 
 
     //Operation
     res << "                  Dynamic     Static (ms): " << endl;
@@ -203,6 +220,20 @@ int main(){
     double hts_s = double(end-start)/CLOCKS_PER_SEC;
 
     res << "HashTable(SC)      " << 1000*hts_d << "ms     " << 1000*hts_s << "ms " << endl;
+
+    start = clock();
+    htl->put("BLUE_ESPEON");
+    end = clock();
+
+    double htl_d = double(end-start)/CLOCKS_PER_SEC;
+
+    start = clock();
+    htl->get("BLUE_ESPEON");
+    end = clock();
+
+    double htl_s = double(end-start)/CLOCKS_PER_SEC;
+
+    res << "HashTable(LP)      " << 1000*htl_d << "ms     " << 1000*htl_s << "ms " << endl;
 
 
     ll_o.close();

@@ -7,18 +7,18 @@
 
 using namespace::std;
 
-struct Entry{
+struct S_Entry{
     string key;
     int val;
-    Entry* next;
-    Entry(string k, int i, Entry* e):key(k),val(i),next(e){}
+    S_Entry* next;
+    S_Entry(string k, int i, S_Entry* e):key(k),val(i),next(e){}
 };
 
 class SeparateChain{
 private:
     int N;
     int M;
-    Entry** st;
+    S_Entry** st;
 
     int hashCode(string key);
 
@@ -35,15 +35,15 @@ public:
 };
 
 SeparateChain::SeparateChain(int capacity):M(capacity){
-    st = new Entry*[M];
+    st = new S_Entry*[M];
     for(int i = 0; i < M; i++)
         st[i] = nullptr;
 }
 
 SeparateChain::~SeparateChain(){
     for(int i = 0; i < M; i++)
-        for(Entry* iter = st[i]; iter!=nullptr;){
-            Entry* old = iter;
+        for(S_Entry* iter = st[i]; iter!=nullptr;){
+            S_Entry* old = iter;
             iter = iter->next;
             delete(old);
         }
@@ -61,12 +61,12 @@ SeparateChain::hashCode(string key){
 void
 SeparateChain::put(string key){
     if(st[hashCode(key)]==nullptr){
-        st[hashCode(key)] = new Entry(key,1,nullptr);
+        st[hashCode(key)] = new S_Entry(key,1,nullptr);
         return;
     }
 
 
-    Entry* iter = st[hashCode(key)];
+    S_Entry* iter = st[hashCode(key)];
 
     if(key == iter->key){
         iter->val++;
@@ -81,12 +81,12 @@ SeparateChain::put(string key){
         iter = iter->next;
     }
 
-    iter->next = new Entry(key,1,nullptr);
+    iter->next = new S_Entry(key,1,nullptr);
 }
 
 int
 SeparateChain::get(string key){
-    Entry* iter = st[hashCode(key)];
+    S_Entry* iter = st[hashCode(key)];
 
     while(iter!=nullptr){
         if(key == iter->key)
@@ -100,7 +100,7 @@ SeparateChain::get(string key){
 void 
 SeparateChain::traverse(ofstream& os){
     for(int i = 0; i < M; i++){
-        Entry* iter = st[i];
+        S_Entry* iter = st[i];
         while(iter!=nullptr){
             os << iter->key << "\t\t\t\t" << iter->val << endl;
             iter = iter->next;

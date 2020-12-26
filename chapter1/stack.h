@@ -3,6 +3,8 @@
 #define STACK_ARRAY
 
 // Stack ADT implemented by resizing array
+#include<iostream>
+using std::ostream;
 
 template<typename Item>
 class Stack {

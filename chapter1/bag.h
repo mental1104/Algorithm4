@@ -1,7 +1,13 @@
+#ifndef BAG
+#define BAG
+
 template<typename Item>
 class Bag {
-  private:
+public:
 	// representation of the node
+
+	int N = 0;
+
 	struct Node
 	{
 		Item item;
@@ -17,6 +23,10 @@ class Bag {
 
 	// add an item to the bag
 	void add(Item item);
+
+	int size(){ return N; }
+
+	Node* iter(){	return first;  }
 };
 
 
@@ -35,4 +45,7 @@ void Bag<Item>::add(Item item) {
 	first = new Node();
 	first->item = item;
 	first->next = oldfirst;
+	N++;
 }
+
+#endif

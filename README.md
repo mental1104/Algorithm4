@@ -16,6 +16,9 @@ Compiler: g++-9
 
 ## [Chapter 2 Sorting](./chapter2)  
 
+## [Chapter 3 Searching](./chapter3)  
+
+
 
 
 

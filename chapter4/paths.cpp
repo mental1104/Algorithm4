@@ -7,34 +7,35 @@
 #include "bfs.h"
 
 int main(){
-    ifstream is("tinyCG.txt");
+    ifstream is("mediumG.txt");
 
+    ofstream os("paths.txt");
     Graph* graph = new Graph(is);
     
     cout << "> Input the source: " << endl;
     int s;
     cin >> s;
 
-    cout << "\nResults for DFS: \n" <<endl;
+    os << "\nResults for DFS: \n" <<endl;
     DepthFirstPaths* dfs = new DepthFirstPaths(graph, s);
     for(int v = 0; v < graph->vertex(); v++){
-        cout << s << " to " << v << ": ";
+        os << s << " to " << v << ": ";
         if(dfs->hasPathTo(v))
             for(int x: dfs->pathTo(v))
-                if(x == s) cout << x;
-                else cout << "-" << x;
-        cout << endl;
+                if(x == s) os << x;
+                else os << "-" << x;
+        os << endl;
     }
 
-    cout << "\nResults for BFS: \n" <<endl;
+    os << "\nResults for BFS: \n" <<endl;
     BreadthFirstPaths* bfs = new BreadthFirstPaths(graph, s);
     for(int v = 0; v < graph->vertex(); v++){
-        cout << s << " to " << v << ": ";
+        os << s << " to " << v << ": ";
         if(bfs->hasPathTo(v))
             for(int x: bfs->pathTo(v))
-                if(x == s) cout << x;
-                else cout << "-" << x;
-        cout << endl;
+                if(x == s) os << x;
+                else os << "-" << x;
+        os << endl;
     }
 
     delete graph;
@@ -45,6 +46,4 @@ int main(){
     dfs = nullptr;
 
     return 0;
-
-   
 }

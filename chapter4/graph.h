@@ -62,7 +62,7 @@ Graph::Graph(istream& in){
 void
 Graph::addEdge(int v, int w){
     adj[v]->add(w);
-    adj[w]->add(v);
+    adj[w]->add(v);//the critical difference compared with digraph
     E++;
 }
 

@@ -58,7 +58,7 @@ Digraph::~Digraph(){
 }
 void
 Digraph::addEdge(int v, int w){
-    adj[v]->add(w);
+    adj[v]->add(w);//Normal graph should add `adj[w]->add[v]
     E++;
 }
 

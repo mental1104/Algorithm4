@@ -84,8 +84,8 @@ Digraph::reverse(){
         while(temp!=nullptr){
             int w = temp->item;
             R->addEdge(w, v);
+            temp = temp->next;
         }
-        temp = temp->next;
     }
     return R;    
 }

@@ -17,7 +17,7 @@ public:
 	
   public:
 	// constructor
-	Bag() { first = new Node(); }
+	Bag() { first = nullptr; }
 	// destructor
 	~Bag();
 

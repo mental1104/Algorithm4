@@ -27,6 +27,20 @@ public:
 
     Digraph* reverse();
 
+    void traverse(ostream& os){
+        for(int i = 0; i<V; i++){
+            os << i << ":  ";
+            auto temp = adjacent(i)->iter();
+            while(temp!=nullptr){
+                os << temp->item;
+                if(temp->next!=nullptr)
+                    os << "->";
+                temp = temp->next;
+            }
+            os << endl;
+        }     
+    }
+
 };
 
 Digraph::Digraph(int vertex):V(vertex){

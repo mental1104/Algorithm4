@@ -1,0 +1,21 @@
+Python Crashbook/C Primer Plus/Professional JavaScript
+C Primer Plus/C++ Primer/Data Structure/Algorithm 4
+Calculus/Statistic Inference
+Calculus/Linear Algebra/Discrete Mathematics/Data Structure
+Algorithm 4/Fluent Python
+Algorithm 4/Introduction to Computer System/Operating System
+Algorithm 4/Introduction to Algorithms/Operation-research-applications-and-algorithms
+Introduction to Algorithms/Concrete Mathematics
+Algorithm 4/Effective C++/Effective Modern C++/Structure and Interpretation of Computer Programs
+Structure and Interpretation of Computer Programs/Desgin Pattern/The Mythical Man-Month/Designing Data-Intensive applications
+Structure and Interpretation of Computer Programs/Clean Code/The Mythical Man-Month
+Structure and Interpretation of Computer Programs/C++ Templates/C++ Concurrency in Action
+Structure and Interpretation of Computer Programs/Effective STL/C++ Concurrency in Action/Designing Data-Intensive applications
+Operating System/MIT 6.828/Advanced Programing in the UNIX Environment
+Operating System/Computer Network/CS144/Advanced Programing in the UNIX Environment
+Operating System/Computer Organization
+Operating System/Database System Concept/High Performance MySQL/Designing Data-Intensive applications
+Advanced Programing in the UNIX Environment/UNIX Network Programing
+Advanced Programing in the UNIX Environment/Linux Kernel Development
+UNIX Network Programing/Compiler
+UNIX Network Programing/C++ Concurrency in Action

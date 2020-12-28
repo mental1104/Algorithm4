@@ -1,11 +1,12 @@
-#ifndef HEAP_2_6
-#define HEAP_2_6
+#ifndef HEAP_MinPQ_2_6
+#define HEAP_MinPQ_2_6
 
 #include<vector>
+#include<climits>
 
 using namespace::std;
 
-class Heap{
+class MinPQ{
 private:
     vector<int> pq;
     int N = 0;
@@ -22,7 +23,7 @@ private:
     }
 
     void swim(int k){
-        while(k>1 && pq[k/2]<pq[k]){
+        while(k>1 && pq[k/2]>pq[k]){
             exch(k/2,k);
             k>>=1;
         }
@@ -32,8 +33,8 @@ private:
         while(2*k<=N)
         {
             int j = 2*k;
-            if(j<N && pq[j]<pq[j+1]) j++;
-            if(!(pq[k]<pq[j])) break;
+            if(j<N && pq[j]>pq[j+1]) j++;
+            if(!(pq[k]>pq[j])) break;
             exch(k, j);
             k = j;
         }
@@ -43,8 +44,8 @@ private:
         while(2*k<=size)
         {
             int j = 2*k;
-            if(j<size && a[j]<a[j+1]) j++;
-            if(!(a[k]<a[j])) break;
+            if(j<size && a[j]>a[j+1]) j++;
+            if(!(a[k]>a[j])) break;
             exch(a, k, j);
             k = j;
         }
@@ -52,8 +53,8 @@ private:
 
     
 public: 
-    Heap() {}
-    Heap(int maxN) { pq.resize(maxN+1); }
+    MinPQ() {}
+    MinPQ(int maxN) { pq.resize(maxN+1); }
 
     bool isEmpty(){
         return N==0;
@@ -67,12 +68,12 @@ public:
         swim(N);
     }
 
-    int delMax(){
-        int max = pq[1];
+    int delMin(){
+        int min = pq[1];
         exch(1,N--);
-        pq[N+1] = 0;
+        pq[N+1] = INT_MAX;
         sink(1);
-        return max;
+        return min;
     }
 
     void sort(vector<int>& a){ //to make other vector can be heapsorted.

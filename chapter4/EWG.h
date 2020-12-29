@@ -35,7 +35,7 @@ private:
     int _V;
     int _E = 0;
     vector<vector<Edge*>> _adj;
-    Edge** edge;
+    Edge** edge;//make it easy to destruct.
 };
 
 EdgeWeightedGraph::

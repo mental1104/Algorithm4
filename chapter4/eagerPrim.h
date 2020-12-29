@@ -1,9 +1,9 @@
 #ifndef EAGER_PRIM_4_7
 #define EAGER_PRIM_4_7
 
+#include "mapping.h"
 #include "weightededge.h"
 #include "EWG.h"
-#include "compare.h"
 #include <queue>
 #include <vector>
 
@@ -11,6 +11,8 @@
 
 using std::priority_queue;
 using std::vector;
+
+
 
 class PrimMST{
 public:
@@ -62,8 +64,11 @@ PrimMST::PrimMST(EdgeWeightedGraph* G){
 
         pq.pop();
         //contained[temp] = false;
-        for(auto iter = vec.begin(); iter!=vec.end(); iter++)
-            if(*iter == temp) vec.erase(iter); 
+        for(auto iter = vec.begin(); iter!=vec.end(); iter++){
+            if(*iter == temp) vec.erase(iter);
+            vec.resize(G->V());//since the erase operation the vec's capacity has been modified. 
+            //If this operation is ignored, following accessing vec might be out of range.
+        }
             
         visit(G, temp->_w);
         delete temp;

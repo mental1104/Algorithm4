@@ -16,8 +16,8 @@ int main(int argc, char** argv){
         cout << edge->toString() << endl;
     cout << "Total weight: " << prim->weight() << endl;
     
-    delete graph;
     delete prim;
+    delete graph;
 
     return 0;
 }

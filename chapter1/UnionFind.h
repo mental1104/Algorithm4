@@ -12,7 +12,6 @@ private:
 
 public:
     UnionFind(int N):count(N){
-        count = N;
         id.resize(N);
         sz.resize(N,1);
         for(int i=0;i<id.size();i++)

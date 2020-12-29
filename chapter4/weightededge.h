@@ -23,6 +23,7 @@ private:
     double _weight;
 };
 
+
 int 
 Edge::other(int vertex){
     if      (vertex == _v) return _w;

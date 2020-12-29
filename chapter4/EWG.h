@@ -7,6 +7,7 @@
 using std::istream;
 using std::vector;
 
+//generating Min Heap for the use of priority_queue<Edge*, vector<Edge*>, cmp>.   
 struct cmp
 {
     bool operator()(Edge* a,Edge* b)
@@ -14,8 +15,7 @@ struct cmp
         if(a->weight() == b->weight())  return a->weight() >= b->weight();
         else return a->weight() > b->weight();
     }
-};//generating Min Heap for the use of priority_queue<Edge*, vector<Edge*>, cmp>.   
-
+};
 
 class EdgeWeightedGraph{
 public:

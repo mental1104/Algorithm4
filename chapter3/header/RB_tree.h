@@ -7,7 +7,7 @@
 #define RED true
 
 class RB_tree: public BST{
-private:
+protected:
 
     bool isRed(Node* h);
 

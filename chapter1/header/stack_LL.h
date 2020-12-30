@@ -2,6 +2,8 @@
 #ifndef STACK_LINKED_LIST
 #define STACK_LINKED_LIST
 
+#include<iostream>
+
 template<typename Item>
 class Stack {
   private:

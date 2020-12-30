@@ -2,6 +2,8 @@
 #ifndef QUEUE
 #define QUEUE
 
+#include<iostream>
+
 template<typename Item>
 class Queue {
   private:

@@ -2,29 +2,27 @@
 #define TOPOLOGICAL_SORT_4_5
 
 #include<iostream>
-#include<list>
+#include<deque>
 #include<fstream>
-#include "cycle.h"
-#include "dfo.h"
-#include "symboldigraph.h"
+#include "./header/cycle.h"
+#include "./header/dfo.h"
+#include "./header/symboldigraph.h"
 
 using namespace::std;
-
 
 class Topological{
 public:
     Topological(Digraph* G);
 
-    list<int> order() {  return _order; }
+    deque<int> order() {  return _order; }
 
     bool isDAG() {  return _order.empty(); }
 
 private:
-    list<int> _order;
+    deque<int> _order;
 };
 
-Topological::
-Topological(Digraph* G){
+Topological::Topological(Digraph* G){
     DirectedCycle* cyclefinder = new DirectedCycle(G);
     if(!cyclefinder->hasCycle())
     {

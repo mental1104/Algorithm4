@@ -3,10 +3,37 @@
 
 #include <iostream>
 #include <vector>
-#include "directededge.h"
+#include <deque>
+#include <string>
+#include <sstream>
+#include <iomanip>
+
 using std::istream;
 using std::vector;
+using std::string;
+using std::ostringstream;
+using std::deque;
 
+class DirectedEdge{
+public:
+    DirectedEdge(int v, int w, double weight):_v(v),_w(w),_weight(weight){}
+    int from()  {   return _v;  }
+    int to()    {   return _w;  }
+    double weight() {  return _weight; }
+    string toString();
+    
+private:
+    int _v;
+    int _w;
+    double _weight;
+};
+
+string
+DirectedEdge::toString(){
+    ostringstream ss;
+    ss << _v << "-" << _w << " " << std::fixed << std::setprecision(2) << _weight;
+    return ss.str();
+}
 
 
 class EdgeWeightedDigraph{
@@ -17,7 +44,7 @@ public:
     int V() {   return _V; }
     int E() {   return _E; }
     void addEdge(DirectedEdge* e);
-    vector<DirectedEdge*> adj(int v) { return _adj[v]; }  
+    deque<DirectedEdge*> adj(int v) { return _adj[v]; }  
     vector<DirectedEdge*> edges();
 
 private:
@@ -26,7 +53,7 @@ private:
 
     int _V;
     int _E = 0;
-    vector<vector<DirectedEdge*>> _adj;
+    vector<deque<DirectedEdge*>> _adj;
     DirectedEdge** edge;//make it easy to destruct.
 };
 
@@ -65,7 +92,7 @@ EdgeWeightedDigraph::readDouble(istream& in){
 void
 EdgeWeightedDigraph::addEdge(DirectedEdge* e){
     int index = e->from();
-    _adj[index].push_back(e);
+    _adj[index].push_front(e);
     _E++;
 }
 

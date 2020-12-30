@@ -1,6 +1,6 @@
-#include<iostream>
-#include<fstream>
-#include"eagerPrim.h"
+#include <iostream>
+#include <fstream>
+#include "./header/eagerPrim.h"
 
 using namespace::std;
 

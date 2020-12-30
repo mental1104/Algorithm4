@@ -3,12 +3,12 @@
 #include<vector>
 #include<ctime>
 
-#include "selectionsort.h"
-#include "insertionsort.h"
-#include "shellsort.h"
-#include "mergesort.h"
-#include "quicksort.h"
-#include "heapsort.h"
+#include "./header/selectionsort.h"
+#include "./header/insertionsort.h"
+#include "./header/shellsort.h"
+#include "./header/mergesort.h"
+#include "./header/quicksort.h"
+#include "./header/heapsort.h"
 
 using namespace::std;
 
@@ -16,7 +16,7 @@ int main(){
     ifstream int32K;
     //int8K.open("8Kints.txt"); 
     //int16K.open("16Kints.txt"); 
-    int32K.open("32Kints.txt"); 
+    int32K.open("./testfile/32Kints.txt"); 
 
     ofstream res;
     res.open("res.txt");
@@ -104,7 +104,7 @@ int main(){
 
     //1kint
     ifstream int1K;
-    int1K.open("./1Kints.txt");
+    int1K.open("./testfile/1Kints.txt");
     
     vector<int> small_file;
     while(int1K >> temp)
@@ -181,7 +181,7 @@ int main(){
 
     //1kint
     ifstream int8K;
-    int8K.open("./8Kints.txt");
+    int8K.open("./testfile/8Kints.txt");
     
     vector<int> vec8K;
     while(int8K >> temp)

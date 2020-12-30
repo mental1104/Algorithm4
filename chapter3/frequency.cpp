@@ -3,12 +3,12 @@
 #include<fstream>
 #include<memory>
 
-#include "linked_list.h"
-#include "binarysearch.h"
-#include "BST.h"
-#include "RB_tree.h"
-#include "SeparateChain.h"
-#include "LinearProbing.h"
+#include "./header/linked_list.h"
+#include "./header/binarysearch.h"
+#include "./header/BST.h"
+#include "./header/RB_tree.h"
+#include "./header/SeparateChain.h"
+#include "./header/LinearProbing.h"
 
 
 using namespace::std;

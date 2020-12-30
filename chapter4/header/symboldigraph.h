@@ -8,7 +8,7 @@
 
 using namespace::std;
 
-#include "digraph.h"
+#include "./digraph.h"
 
 void splitString(const std::string& s, std::vector<std::string>& v, const std::string& c)
 {//why does STL stirng not support split string operation???

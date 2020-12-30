@@ -2,27 +2,32 @@
 #include<fstream>
 #include<vector>
 
-#include "CC.h"
+#include "./header/CC.h"
 
-int main(){
-    ifstream is("mediumG.txt");
-    ofstream os("CC.txt");
+using namespace::std;
+
+int main(int argc, char** argv){
+    if(argc!=2){
+        cout << "You must enter ont extra parameter!" << endl;
+        return 0;
+    }
+    ifstream is(argv[1]);
 
     Graph* G = new Graph(is);
     CC* cc = new CC(G);
 
     int M = cc->count();
-    os << M << " Components" << endl;
+    cout << M << " Components" << endl;
 
     vector<vector<int>> vec;
     vec.resize(M);
-    for(int v = 0; v < G->vertex(); v++)
+    for(int v = 0; v < G->V(); v++)
         vec[cc->id(v)].push_back(v);
     for(int i = 0; i<M; i++)
     {
         for(int v: vec[i])
-            os << v << " ";
-        os << endl;
+            cout << v << " ";
+        cout << endl;
     }
 
     delete G;

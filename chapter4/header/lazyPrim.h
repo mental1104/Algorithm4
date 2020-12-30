@@ -2,43 +2,43 @@
 #define LAZY_PRIM_IN_ALGORITHM_FOURTH
 
 #include <queue>
+#include <deque>
 #include <vector>
 #include "EWG.h"
-#include "weightededge.h"
 
 using namespace::std;
 
 class LazyPrimMST{
 public:
     LazyPrimMST(EdgeWeightedGraph* G);
-    ~LazyPrimMST() { delete[] marked; }
+    ~LazyPrimMST() {}
 
     void visit(EdgeWeightedGraph* G, int v);
-    vector<Edge*> edges() { return mst; }
+    vector<Edge*> edges() { return _mst; }
     double weight();
 
 private:
-    bool* marked;
-    vector<Edge*> mst;
-    priority_queue<Edge*, vector<Edge*>, cmp> pq;
+    deque<bool> _marked;
+    vector<Edge*> _mst;
+    priority_queue<Edge*, vector<Edge*>, cmp> _pq;
 };
 
 LazyPrimMST::LazyPrimMST(EdgeWeightedGraph* G){
-    marked = new bool[G->V()];
+    _marked.resize(G->V());
     for(int i = 0; i < G->V(); i++)
-        marked[i] = false;
+        _marked[i] = false;
 
     visit(G, 0);
-    while(!pq.empty()){
-        Edge* e = pq.top();
-        pq.pop();
+    while(!_pq.empty()){
+        Edge* e = _pq.top();
+        _pq.pop();
 
         int v = e->either(), w = e->other(v);
-        if(marked[v] && marked[w]) continue;
+        if(_marked[v] && _marked[w]) continue;
 
-        mst.push_back(e);
-        if(!marked[v]) visit(G, v);
-        if(!marked[w]) visit(G, w);
+        _mst.push_back(e);
+        if(!_marked[v]) visit(G, v);
+        if(!_marked[w]) visit(G, w);
     }
 }
 
@@ -47,15 +47,15 @@ LazyPrimMST::LazyPrimMST(EdgeWeightedGraph* G){
 
 void 
 LazyPrimMST::visit(EdgeWeightedGraph* G, int v){
-    marked[v] = true;
+    _marked[v] = true;
     for(Edge* e: G->adj(v))
-        if(!marked[e->other(v)]) pq.push(e);
+        if(!_marked[e->other(v)]) _pq.push(e);
 }
 
 double
 LazyPrimMST::weight(){
     double sum = 0;
-    for(Edge* i: mst)
+    for(Edge* i: _mst)
         sum += i->weight();
     return sum;
 }

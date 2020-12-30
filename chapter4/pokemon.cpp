@@ -1,5 +1,5 @@
 //This is a simple program to check the strong connectivity among 18 different elements.
-#include "kosarajuSCC.h"
+#include "./header/kosarajuSCC.h"
 #include<unordered_map>
 #include<fstream>
 
@@ -25,7 +25,7 @@ int main(){
         "steel",
         "fairy"
     };
-    ifstream is("pokemon.txt");
+    ifstream is("./testfile/pokemon.txt");
     Digraph* graph = new Digraph(is);
     KosarajuSCC* components = new KosarajuSCC(graph);
     cout << components->count() << " Components" << endl;

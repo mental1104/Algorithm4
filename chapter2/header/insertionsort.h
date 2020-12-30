@@ -7,6 +7,7 @@ using namespace::std;
 
 class Insertion{
 public:
+
     static void sort(vector<int> &a){
         int N = a.size();
         for(int i = 1; i < N; i++){
@@ -17,7 +18,6 @@ public:
             }
         }
     }
-
 };
 
 #endif

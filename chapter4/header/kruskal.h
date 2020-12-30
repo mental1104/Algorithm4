@@ -3,9 +3,8 @@
 
 #include <vector>
 #include <queue>
-#include "weightededge.h"
-#include "EWG.h"
-#include "../chapter1/UnionFind.h"
+#include "./EWG.h"
+#include "../../chapter1/header/UF.h"
 using namespace::std;
 
 

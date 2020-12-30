@@ -1,6 +1,6 @@
 #include<iostream>
 #include<fstream>
-#include"lazyPrim.h"
+#include"./header/lazyPrim.h"
 
 using namespace::std;
 

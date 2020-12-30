@@ -1,41 +1,41 @@
 #include<iostream>
 #include<fstream>
-#include<memory>
 
-#include "graph.h"
-#include "dfs.h"
-#include "bfs.h"
+#include "./header/graph.h"
+#include "./header/dfs.h"
+#include "./header/bfs.h"
+using namespace::std;
 
-int main(){
-    ifstream is("mediumG.txt");
+int main(int argc, char** argv){
+    if(argc!=3){
+        cout << "You must enter two extra parameters!" << endl;
+        return 0;
+    }
+    ifstream is(argv[1]);
+    int s = atoi(argv[2]);
 
-    ofstream os("paths.txt");
     Graph* graph = new Graph(is);
     
-    cout << "> Input the source: " << endl;
-    int s;
-    cin >> s;
-
-    os << "\nResults for DFS: \n" <<endl;
+    cout << "\nResults for DFS: \n" << endl;
     DepthFirstPaths* dfs = new DepthFirstPaths(graph, s);
-    for(int v = 0; v < graph->vertex(); v++){
-        os << s << " to " << v << ": ";
-        if(dfs->hasPathTo(v))
+    for(int v = 0; v < graph->V(); v++){
+        cout << s << " to " << v << ": ";
+        if(dfs->marked(v))
             for(int x: dfs->pathTo(v))
-                if(x == s) os << x;
-                else os << "-" << x;
-        os << endl;
+                if(x == s) cout << x;
+                else cout << "-" << x;
+        cout << endl;
     }
 
-    os << "\nResults for BFS: \n" <<endl;
+    cout << "\nResults for BFS: \n" <<endl;
     BreadthFirstPaths* bfs = new BreadthFirstPaths(graph, s);
-    for(int v = 0; v < graph->vertex(); v++){
-        os << s << " to " << v << ": ";
-        if(bfs->hasPathTo(v))
+    for(int v = 0; v < graph->V(); v++){
+        cout << s << " to " << v << ": ";
+        if(bfs->marked(v))
             for(int x: bfs->pathTo(v))
-                if(x == s) os << x;
-                else os << "-" << x;
-        os << endl;
+                if(x == s) cout << x;
+                else cout << "-" << x;
+        cout << endl;
     }
 
     delete graph;
@@ -43,7 +43,7 @@ int main(){
     delete dfs;
     dfs = nullptr;
     delete bfs;
-    dfs = nullptr;
+    bfs = nullptr;
 
     return 0;
 }

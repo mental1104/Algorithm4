@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "kruskal.h"
+#include "./header/kruskal.h"
 
 using namespace::std;
 

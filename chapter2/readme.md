@@ -21,12 +21,12 @@
   
 ## Some Important Conclusion  
 
-### [SelectionSort](./header/selectionsort.h)
+### [2.1 SelectionSort](./header/selectionsort.h)
 
 O(N), a simple example to introduce algorithm, nothing special.  
 For sorting 1M int, you might take 2 whole days to accomplish it.  
 
-### [InsertionSort](./header/insertionsort.h)
+### [2.2 InsertionSort](./header/insertionsort.h)
 
 Average:    ~N^2/4 compares and ~N^2/4 exchanges  
 worst case: ~N^2/4 compares and ~N^2/2 exchanges  
@@ -38,7 +38,7 @@ Owing to the times of its compare and exchange as O(n^2/4), InsertionSort is the
 > Insertion Sort for 8K int: 0.25124s.  0.790427 times faster than selection sort.  
 > InsertionSort:  4.05283s  0.807027 times faster than SelectionSort.  
 
-### [ShellSort](./header/shellsort.h)
+### [2.3 ShellSort](./header/shellsort.h)
 
 > It's nothing but a optimized insertion sort.  
 
@@ -48,7 +48,7 @@ O(NlogN) on the average.
 unstable  
 extra place O(1)  
 
-### [MergeSort](./header/mergesort.h)  
+### [2.4 MergeSort](./header/mergesort.h)  
 
 Mergesort is a stable sorting algorithm.  
 
@@ -67,12 +67,15 @@ benefit: non-recursive
 1/2 NlgN - NlgN compares  
 at most 6NlgN array accesses  
 
-### [Quicksort](./header/quicksort.h)  
+### [2.5 Quicksort](./header/quicksort.h)  
 
 O(1.39NlgN) and unstable  
 currently the fastest sorting algorithm  
 
-### [heapsort](./header/heapsort.h)
+ 
+### [2.7 heapsort](./header/heapsort.h)  
++ [2.6 MaxPQ](./header/maxPQ.h)  
++ [2.6 MinPQ](./header/minPQ.h)  
 
 O(NlgN)   
 > 2NlgN + 2N compares  

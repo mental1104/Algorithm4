@@ -45,7 +45,6 @@ MSD::less(string v,string w, int d){
 
 void 
 MSD::sort(vector<string>& a, int lo, int hi, int d){
-    //if(hi < lo) return;
     if(hi <= lo + M){
         insertionSort(a,lo,hi,d);
         return;

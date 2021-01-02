@@ -34,8 +34,12 @@ public:
         root = put(root, key, val, 0);
     }
 
+    void del(string key){   root = del(root, key, 0); }
+
     vector<string> keys();
     vector<string> keysWithPrefix(string pre);
+    vector<string> keysThatMatch(string pat);
+    string longestPrefixOf(string s);
 
 
 private:
@@ -43,6 +47,9 @@ private:
     Node* get(Node* x, string key, int d);
     Node* put(Node* x, string key, int val, int d);
     void collect(Node* x, string pre, vector<string>& q);
+    void collect(Node* x, string pre, string pat, vector<string>& q);
+    int search(Node* x, string s, int d, int length);
+    Node* del(Node* x, string key, int d);
 
     int R = 256;
     Node* root = nullptr;
@@ -95,6 +102,13 @@ TrieST::keysWithPrefix(string pre){
     return q;
 }
 
+vector<string>
+TrieST::keysThatMatch(string pat){
+    vector<string> q;
+    collect(root, "", pat, q);
+    return q;
+}
+
 void
 TrieST::collect(Node* x, string pre, vector<string>& q){
     if (x == nullptr) return;
@@ -105,5 +119,48 @@ TrieST::collect(Node* x, string pre, vector<string>& q){
     }
 }
 
+void 
+TrieST::collect(Node* x, string pre, string pat, vector<string>& q){
+    int d = pre.length();
+    if (x == nullptr) return;
+    if (d == pat.length() && x->val!=-1) q.push_back(pre);
+    if (d == pat.length()) return; 
 
+    char next = pat[d];
+    for(short c = 0; c<R; c++){
+        char temp = *(char*)&c;
+        if(next = '.'||next == temp)
+            collect(x->next[c],pre+temp, pat, q);
+    }
+}
+
+string
+TrieST::longestPrefixOf(string s){
+    int length = search(root, s, 0, 0);
+    return s.substr(0, length);
+}
+
+int 
+TrieST::search(Node* x, string s, int d, int length){
+    if(x == nullptr) return length;
+    if(x->val != -1) length = d;
+    if(d == s.length()) return length;
+    char c = s[d];
+    return search(x->next[c], s, d+1, length);
+}
+
+Node* 
+TrieST::del(Node* x, string key, int d){
+    if(x == nullptr) return nullptr;
+    if(d == key.length())
+        x->val = -1;
+    else{
+        char c = key[d];
+        x->next[c] = del(x->next[c],key,d+1);
+    }
+    if(x->val != -1) return x;
+    for(short c = 0; c<R; c++)
+        if(x->next[c]!= nullptr) return x;
+    return nullptr;
+}
 #endif

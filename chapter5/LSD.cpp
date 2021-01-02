@@ -26,7 +26,7 @@ int main(){
     end = clock();
 
     double time_val = double(end - begin)/CLOCKS_PER_SEC;
-
+    cout << "Sort time: " << time_val << "s. " << endl;
 
     for(string i:vec)
         cout << i << endl;

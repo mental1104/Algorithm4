@@ -39,3 +39,13 @@ pattern:     rol
 text:    thatlastshredofhumanitythatyoustillhad
 pattern:           red                         
 ```
+
+## 5.9 Regular-Expression  
+Finite State Machine.  
+It needs digraph and DFS for digraph in chapter4.  
+`g++ grep.cpp`  
+`./a.out "(A*B|AC)D"`  
+```
+ABD
+ABCCBD
+```

@@ -30,8 +30,6 @@ DepthFirstPaths(Graph* G, int s):_s(s)
 {   
     _marked.resize(G->V());
     _edgeTo.resize(G->V());
-    for(bool& i:_marked)
-        i = false;
     dfs(G,s); 
 }
 void 

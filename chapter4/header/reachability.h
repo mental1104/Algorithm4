@@ -3,7 +3,7 @@
 
 #include "./digraph.h"
 #include "./dfs.h"
-#include<vector>
+#include<deque>
 #include<fstream>
 
 using namespace::std;
@@ -11,7 +11,7 @@ using namespace::std;
 class DirectedDFS : public DepthFirstPaths {
 public:
     DirectedDFS(Digraph* G, int s);
-    DirectedDFS(Digraph* G, vector<int> sources);
+    DirectedDFS(Digraph* G, deque<int> sources);
     virtual ~DirectedDFS(){}
 
 private:
@@ -20,10 +20,11 @@ private:
 };
 
 DirectedDFS::DirectedDFS(Digraph* G, int s){
+    _marked.resize(G->V());
     dfs(G, s);
 }
 
-DirectedDFS::DirectedDFS(Digraph* G, vector<int> sources){
+DirectedDFS::DirectedDFS(Digraph* G, deque<int> sources){
     for(int s: sources)
         if(!_marked[s]) dfs(G, s);
 }

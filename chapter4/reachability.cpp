@@ -1,6 +1,6 @@
 #include "./header/digraph.h"
 #include "./header/reachability.h"
-#include<vector>
+#include<deque>
 #include<fstream>
 
 using namespace::std;
@@ -11,7 +11,7 @@ int main(){
     Digraph *G = new Digraph(is);
 
     int temp;
-    vector<int> vec;
+    deque<int> vec;
     cout << "> Input the number. " << endl;
     while(cin >> temp){
         vec.push_back(temp);

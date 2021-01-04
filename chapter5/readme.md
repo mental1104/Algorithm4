@@ -49,3 +49,40 @@ It needs digraph and DFS for digraph in chapter4.
 ABD
 ABCCBD
 ```
+
+## 5.10 Huffman-Encoding Compression
+Not implementing the binaryInput and expand(), writeTrie(), readTrie().  
+`g++ huffman.cpp`  
+`./a.out ABRACADABRA!` 
+
+```
+Compression begins... 
+after compressing:
+0101111011010100010111101100
+
+Trie Tree:
+! 1100
+A 0
+B 101
+C 1101
+D 100
+R 111
+```
+
+`./a.out Acanopenercanopencans`  
+```
+Compression begins... 
+after compressing:
+001011011101101100010001100001111011101101100010001110111011010
+
+Trie Tree:
+A 0010
+a 111
+c 110
+e 100
+n 01
+o 1011
+p 000
+r 0011
+s 1010
+```

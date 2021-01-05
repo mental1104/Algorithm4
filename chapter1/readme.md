@@ -4,7 +4,7 @@
 
 First In, Last Out (FILO)  
 
-[1.2 linked-list edition](.stack_LL.h)  
+[1.2 linked-list edition](./header/stack_LL.h)  
 
 ## [1.3 Queue](./header/queue.h)  
 

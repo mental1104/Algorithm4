@@ -95,7 +95,7 @@ Compiler: g++ 9
 ### 4.4 Shortest Paths  
 
 + [directed Weighted Graph](./chapter4/header/EWDG.h)  
-+ [4.9 Dijkstra's Shortest-Paths Algorithm](./chapter4/headerDjijkstra.h)   
++ [4.9 Dijkstra's Shortest-Paths Algorithm](./chapter4/header/Djijkstra.h)   
 + [4.10 Shortest Paths in Edge-Weighted DAGS](./chapter4/header/acyclic.h)   
 + [4.11 Bellman-Ford Algorithm(queue-based)](./chapter4/header/bellman.h)  
 
@@ -104,7 +104,7 @@ Compiler: g++ 9
 ### 5.1 String Sorts  
 + [5.1 LSD string sort](./chapter5/header/LSD.h)   
 + [5.2 MSD string sort](./chapter5/header/MSD.h)  
-+ [5.3 Three-Way string quicksort](.chapter5/header/quick3way.h)  
++ [5.3 Three-Way string quicksort](./chapter5/header/quick3way.h)  
   
 ### 5.2 Tries  
 

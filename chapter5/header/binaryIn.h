@@ -6,6 +6,8 @@
 #include<string>
 #include<exception>
 #include<stdexcept>
+#include<bitset>
+#include<vector>
 
 using namespace::std;
 
@@ -19,71 +21,74 @@ public:
     ~BinaryIn() {inFile.close(); }
 
     void fillBuffer() {
-        buffer = inFile.get();//read one character;
-        n = 8;
+        if(inFile.eof())
+            buffer = EOF;
+        else{
+            buffer = inFile.get();//read one character.;
+            n = 8;
+        }
     }
 
     bool readBool() {
-        if (isEmpty()) throw runtime_error("Reading from empty input stream");
         n--;
         bool bit = ((buffer >> n) & 1) == 1;
         if (n == 0) fillBuffer();
         return bit;
     }
 
-    char readChar() {
-        if (isEmpty()) throw runtime_error("Reading from empty input stream");
+    bitset<8> readChar() {
 
         // special case when aligned byte
         if (n == 8) {
-            char x = buffer;
+            int x = buffer;
             fillBuffer();
-            return (char) (x & 0xff);
+            bitset<8> temp(x);
+            return temp;
         }
 
         // combine last N bits of current buffer with first 8-N bits of new buffer
-        char x = buffer;
+        int x = buffer;
         x <<= (8 - n);
         int oldN = n;
         fillBuffer();
-        if (isEmpty()) throw runtime_error("Reading from empty input stream");
+        if (isEmpty()){
+            return bitset<8>(x);
+        }
         n = oldN;
-        x |= *(unsigned char*)&buffer >> n;
-        return (char) (x & 0xff);
+        unsigned int temp = *(unsigned int*)&buffer;
+        x |= (temp >> n);
+        return bitset<8>(x);
         // the above code doesn't quite work for the last character if N = 8
         // because buffer will be -1
     }
 
-    int readInt() {
-        int x = 0;
+    vector<bitset<8>> readInt() {
+        vector<bitset<8>> x;
         for (int i = 0; i < 4; i++) {
-            char c = readChar();
-            x <<= 8;
-            x |= c;
+            bitset<8> c = readChar();
+            x.push_back(c);
         }
         return x;
     }
 
-    string readString() {
-        if (isEmpty()) throw runtime_error("Reading from empty input stream");
+    vector<bitset<8>> readString() {
 
-        string sb("");
+        vector<bitset<8>> sb;
         while (!isEmpty()) {
-            char c = readChar();
-            sb+=c;
+            bitset<8> c = readChar();
+            sb.push_back(c);
         }
-        sb+='\0';
         return sb;
     }
 
     bool isEmpty() {
-        return inFile.peek() == EOF;
+        return buffer == EOF;
     }
 
 private:
-    char buffer;// one character buffer
+    int buffer;// one character buffer
     ifstream inFile;// the input stream                 
-    int n;      // number of bits left in buffer
+    int n = 0;      // number of bits left in buffer
     
 };
 

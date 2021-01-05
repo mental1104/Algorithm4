@@ -7,17 +7,20 @@
 #include<exception>
 #include<stdexcept>
 #include<cassert>
+#include<bitset>
+#include<vector>
 
 using namespace::std;
 
 class BinaryOut {
 private:
     ofstream out;  // the output stream
-    char buffer = 0;                // 8-bit buffer of bits to write out
+    int buffer = 0;                // 8-bit buffer of bits to write out
     int n = 0;                     // number of bits remaining in buffer
+    vector<bitset<8>> sum;
 public:
 
-    BinaryOut(string filename) {   out.open(filename, ios::binary|ios::out);  }
+    BinaryOut(string filename) {   out.open(filename, ios::out|ios::binary);  }
     ~BinaryOut()    {   out.close();  }
 
     void writeBit(bool x) {
@@ -31,17 +34,18 @@ public:
     } 
 
    
-    void writeByte(char x) {
-        assert(x >= 0 && x < 256);
+    void writeByte(bitset<8> x) {
 
-        // optimized if byte-aligned
-        if (n == 0) 
-            out.write(&x, sizeof(char));
-        return;
+        if (n == 0) {
+            unsigned long n = x.to_ulong();
+            out.write(reinterpret_cast<const char*>(&n), sizeof(char));
+            return;
+        }
+        
 
         // otherwise write one bit at a time
         for (int i = 0; i < 8; i++) {
-            bool bit = ((*(unsigned*)&x >> (8 - i - 1)) & 1) == 1;
+            bool bit = x[7-i];
             writeBit(bit);
         }
     }
@@ -50,7 +54,8 @@ public:
     void clearBuffer() {
         if (n == 0) return;
         if (n > 0) buffer <<= (8 - n);
-        out.write(&buffer,sizeof(char));
+        bitset<8> temp(buffer);
+        out.write(reinterpret_cast<const char*>(&temp),sizeof(char));
 
         n = 0;
         buffer = 0;
@@ -60,16 +65,12 @@ public:
         writeBit(x);
     } 
 
-    void write(int x) {
-        unsigned temp = *(unsigned*)&x;
-        writeByte((temp >> 24) & 0xff);
-        writeByte((temp >> 16) & 0xff);
-        writeByte((temp >>  8) & 0xff);
-        writeByte((temp >>  0) & 0xff);
+    void write(vector<bitset<8>> x) {
+        for(bitset<8> i:x)
+            writeByte(i);
     }
 
-    void write(char x) {
-        if (x < 0 || x >= 256) throw runtime_error("Illegal 8-bit char = ");
+    void write(bitset<8> x) {
         writeByte(x);
     }
 

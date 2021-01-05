@@ -8,23 +8,24 @@
 #include<stdexcept>
 #include<bitset>
 #include<vector>
+#include<deque>
+#include<sstream>
 
 using namespace::std;
 
 class BinaryIn {
 public:
-    BinaryIn(string name) {
-        inFile.open(name, ios_base::binary|ios_base::in);
+    BinaryIn(istream* s):inFile(s) {
         fillBuffer();
     }
 
-    ~BinaryIn() {inFile.close(); }
+    ~BinaryIn() {}
 
     void fillBuffer() {
-        if(inFile.eof())
+        if(inFile->eof())
             buffer = EOF;
         else{
-            buffer = inFile.get();//read one character.;
+            buffer = inFile->get();//read one character.;
             n = 8;
         }
     }
@@ -71,7 +72,7 @@ public:
         return x;
     }
 
-    vector<bitset<8>> readString() {
+    vector<bitset<8>> readString() {//overload of deque<> to figure out int and string
 
         vector<bitset<8>> sb;
         while (!isEmpty()) {
@@ -87,7 +88,7 @@ public:
 
 private:
     int buffer;// one character buffer
-    ifstream inFile;// the input stream                 
+    istream* inFile;// the input stream                 
     int n = 0;      // number of bits left in buffer
     
 };

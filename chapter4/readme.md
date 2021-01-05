@@ -426,7 +426,7 @@ Total weight: 1.81
 + [directed Weighted Graph](./header/EWDG.h)  
 + [A index(int)-double mapping struct for the handier use of STL priority_queue](./header/mapping.h)  
 
-### [4.9 Dijkstra's Shortest-Paths Algorithm](./headerDjijkstra.h)  
+### [4.9 Dijkstra's Shortest-Paths Algorithm](./header/Dijkstra.h)  
 `g++ Dijkstra.cpp`  
 `./a.out ./testfile/tinyEWD.txt 0`  
 ```

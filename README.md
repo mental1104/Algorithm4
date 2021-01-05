@@ -95,7 +95,7 @@ Compiler: g++ 9
 ### 4.4 Shortest Paths  
 
 + [directed Weighted Graph](./chapter4/header/EWDG.h)  
-+ [4.9 Dijkstra's Shortest-Paths Algorithm](./chapter4/header/Djijkstra.h)   
++ [4.9 Dijkstra's Shortest-Paths Algorithm](./chapter4/header/Dijkstra.h)   
 + [4.10 Shortest Paths in Edge-Weighted DAGS](./chapter4/header/acyclic.h)   
 + [4.11 Bellman-Ford Algorithm(queue-based)](./chapter4/header/bellman.h)  
 

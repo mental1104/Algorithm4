@@ -9,7 +9,7 @@ All the code(specified by "Algorithm x.y) in this book are going to be implement
 Some testfiles are from the official website, like largeUF.txt, 32Kints.txt.  
 
 Environment: linux-ubuntu  
-Compiler: g++-9  
+Compiler: g++ 9  
 
 
 ## [Chapter 1 Fundamental](./chapter1)  
@@ -17,6 +17,10 @@ Compiler: g++-9
 ## [Chapter 2 Sorting](./chapter2)  
 
 ## [Chapter 3 Searching](./chapter3)  
+
+## [Chapter 4 Graph](./chapter4)  
+
+## [Chapter 5 String](./chapter5)  
 
 
 

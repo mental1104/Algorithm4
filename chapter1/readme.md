@@ -15,7 +15,7 @@ First In, First Out
 A Data Structure that can be only read, add, not modified or delete.  
 
 
-## [1.5 Union Find](./header/UnionFind.h)  
+## [1.5 Union Find](./header/UF.h)  
 
 To check Connectivity, quick-find->quick-union->weighted->union  
 

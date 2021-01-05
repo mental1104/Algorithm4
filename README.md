@@ -30,7 +30,7 @@ Compiler: g++ 9
 + [1.4 Bag](./chapter1/header/bag.h)  
 
 ### 1.5 Case Study: Union-Find
-+ [1.5 Union Find](./chapter1/header/UnionFind.h)  
++ [1.5 Union Find](./chapter1/header/UF.h)  
 
 ## [Chapter 2 Sorting](./chapter2)  
 

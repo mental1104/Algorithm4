@@ -124,7 +124,7 @@ Compiler: g++ 9
 ### 5.5 Data Compression  
 
 + [5.10 Huffman-Encoding Compression](./chapter5/header/huffman.h)  
-+ 5.11 LZW Compression  
++ 5.11 LZW Compression   
 
 
 

@@ -2,7 +2,7 @@
 #include<vector>
 #include<string>
 #include<fstream>
-#include"UnionFind.h"
+#include"./header/UF.h"
 
 using namespace::std;
 

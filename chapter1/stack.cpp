@@ -1,6 +1,6 @@
 //ALGORITHM 1.1 Pushdown (LIFO) stack (resizing array implementation) testfile
 #include<iostream>
-#include "stack.h"
+#include "./header/stack.h"
 
 using namespace::std;
 

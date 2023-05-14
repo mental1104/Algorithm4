@@ -1,0 +1,15 @@
+file(COPY ${PROJECT_SOURCE_DIR}/src/chapter4/testfile 
+     DESTINATION ${PROJECT_BINARY_DIR}/bin/chapter4/)
+
+add_executable(acyclic acyclic.cpp)
+add_executable(bellman bellman.cpp)
+add_executable(CC CC.cpp)
+add_executable(Dijkstra Dijkstra.cpp)
+add_executable(eagerPrim eagerPrim.cpp)
+add_executable(kosarajuSCC kosarajuSCC.cpp)
+add_executable(kruskal kruskal.cpp)
+add_executable(lazyPrim lazyPrim.cpp)
+add_executable(paths paths.cpp)
+add_executable(pokemon pokemon.cpp)
+add_executable(reachability reachability.cpp)
+add_executable(topological topological.cpp)

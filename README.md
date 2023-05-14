@@ -2,6 +2,20 @@
 
 ![Algorithm 4th](./algorithm.png)  
 
+Usage:
+
+```
+mkdir build
+cd build
+cmake ..
+make -j8
+```
+
+Then go to the bin directory to find those executable files
+
+The following content is deprecated... Now refactoring the docs and code...  
+---
+
 This is a personal note of reading *Algorithm 4th*.
 
 All the code(specified by "Algorithm x.y) in this book are going to be implemented by c++.  
